@@ -1,0 +1,108 @@
+// Angular Material.
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+// Font Awesome.
+$fa-font-path : '../../node_modules/font-awesome/fonts';
+@import '../../node_modules/font-awesome/scss/font-awesome';
+
+// Bootstrap.
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+// Roboto.
+@import "../../node_modules/roboto-fontface/css/roboto/roboto-fontface.css";
+
+.inline-block {
+  display: inline-block;
+}
+
+.mat-card {
+  background-color: #b8bfbf;
+}
+
+.slider {
+  width: 100%;
+}
+
+body {
+
+  background-color: #525252;
+}
+
+.light-on {
+  color: #ffeb02;
+}
+
+.light-off {
+  color: #525252;
+}
+
+.clock-time {
+  width: 100%;
+  text-align: center;
+  font-size: 150px;
+  color: white;
+  font-family: 'Roboto-Thin';
+}
+
+.clock-date {
+  width: 100%;
+  text-align: center;
+  font-size: 30px;
+  color: white;
+  font-family: 'Roboto-Thin';
+}
+
+.weather {
+  width: 100%;
+  text-align: center;
+  font-size: 40px;
+  color: white;
+  font-family: 'Roboto-Thin';
+}
+
+.garbage {
+  width: 100%;
+  text-align: center;
+  font-size: 30px;
+  color: white;
+  font-family: 'Roboto-Thin';
+}
+
+.garbage .day-disposal {
+  font-weight: bold;
+  color: #ff9a50;
+}
+
+.garbage .v-disposal {
+  color: #619c3c;
+}
+
+.garbage .c-disposal {
+  color: #3388e3;
+}
+
+.garbage .i-disposal {
+  color: #b8bfbf;
+}
+
+.garbage .p-disposal {
+  color: #e7cd33;
+}
+
+.garbage .o-disposal {
+  color: #bf592d;
+}
+
+.garbage .no-disposal {
+  color: #b7b7b7;
+}
+
+.weather .temperature {
+  font-weight: bold;
+  color: #ffd956;
+}
+
+.weather .forecast {
+  font-weight: bold;
+  color: #4cbdff;
+}

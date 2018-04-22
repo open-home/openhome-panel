@@ -1,0 +1,21 @@
+<div class="garbage">
+  <br/>
+  <div>
+    <span class="day-disposal">Today <i class="fa fa-fw fa-trash"></i></span>
+    <span *ngIf="garbagePayloadToday">
+    <span *ngFor="let collection of garbagePayloadToday.garbageCollection">
+      <span [ngClass]="collection + '-disposal'">{{ collection | garbageDisposal }}</span>
+    </span>
+    </span>
+    <span class="no-disposal" *ngIf="!garbagePayloadToday">No disposal</span>
+  </div>
+  <div>
+    <span class="day-disposal">Tomorrow <i class="fa fa-fw fa-trash"></i></span>
+    <span *ngIf="garbagePayloadTomorrow">
+    <span *ngFor="let collection of garbagePayloadTomorrow.garbageCollection">
+      <span [ngClass]="collection + '-disposal'">{{ collection | garbageDisposal }}</span>
+    </span>
+    </span>
+    <span class="no-disposal" *ngIf="!garbagePayloadTomorrow">No disposal</span>
+  </div>
+</div>

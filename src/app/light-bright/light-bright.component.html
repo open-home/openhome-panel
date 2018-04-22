@@ -1,0 +1,7 @@
+<div style="width: 300px">
+  <p>Brightness</p>
+  <mat-slider
+    class="slider"
+    (change)="onBrightness($event)"
+    [min]="0" [max]="100" [step]="0.1" [value]="state.data.color.brightness"></mat-slider>
+</div>
