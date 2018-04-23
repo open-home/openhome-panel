@@ -20,6 +20,7 @@ export class LongPressDirective {
   constructor() { }
 
   @HostListener('mousedown', ['$event'])
+  @HostListener('touchstart', ['$event'])
   onMouseDown(event) {
 
     const init = Date.now();
@@ -38,6 +39,7 @@ export class LongPressDirective {
   }
 
   @HostListener('mouseup', ['$event'])
+  @HostListener('touchend', ['$event'])
   onMouseUp(event) {
     this.endPress();
   }

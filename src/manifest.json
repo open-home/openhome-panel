@@ -1,0 +1,19 @@
+{
+  "short_name": "openhome-panel",
+  "name": "openhome Panel",
+  "start_url": "/",
+
+  "theme_color": "#525252",
+  "background_color": "#525252",
+
+  "display": "standalone",
+  "orientation": "landscape",
+
+  "icons": [
+    {
+      "src": "/assets/icons/android-chrome-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    }
+  ]
+}

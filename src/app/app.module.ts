@@ -19,28 +19,27 @@ import { RoundNumberPipe } from './shared/pipes/round-number.pipe';
 import { GarbageDisposalComponent } from './garbage-disposal/garbage-disposal.component';
 import { HomeCloudServicesService } from './shared/services/home-cloud-services.service';
 import { GarbageDisposalPipe } from './shared/pipes/garbage-disposal.pipe';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
-
     AppComponent,
     LightBrightComponent,
+    OpenWeatherComponent,
+    GarbageDisposalComponent,
 
     // Pipes.
     PowerBooleanPipe,
     RoundNumberPipe,
     GarbageDisposalPipe,
+    RoundNumberPipe,
 
     // Directives.
     LongPressDirective,
-
-    OpenWeatherComponent,
-
-    RoundNumberPipe,
-
-    GarbageDisposalComponent
   ],
   imports: [
+    environment.production ? ServiceWorkerModule.register('ngsw-worker.js') : [],
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,

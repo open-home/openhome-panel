@@ -24,8 +24,13 @@ $fa-font-path : '../../node_modules/font-awesome/fonts';
 }
 
 body {
-
   background-color: #525252;
+}
+
+.fixed-logo {
+  position: fixed;
+  bottom: 10px;
+  left: 1%;
 }
 
 .light-on {
