@@ -5,12 +5,13 @@ import { AppComponent } from './app.component';
 import { LifxService } from './shared/services/lifx.service';
 import { HttpClientModule } from '@angular/common/http';
 import {
+  MatButtonModule,
   MatCardModule, MatDialogModule, MatSliderModule, MatSlideToggleModule, MatSnackBarModule,
 } from '@angular/material';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PowerBooleanPipe } from './shared/pipes/power-boolean.pipe';
-import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LongPressDirective } from './shared/directives/long-press/long-press.directive';
 import { LightBrightComponent } from './light-bright/light-bright.component';
 import { OpenWeatherComponent } from './open-weather/open-weather.component';
@@ -21,6 +22,9 @@ import { HomeCloudServicesService } from './shared/services/home-cloud-services.
 import { GarbageDisposalPipe } from './shared/pipes/garbage-disposal.pipe';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { LoadingComponent } from './shared/containers/loading/loading.component';
+import { DvrService } from './shared/services/dvr.service';
+import { DvrBoardComponent } from './dvr-board/dvr-board.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +32,7 @@ import { environment } from '../environments/environment';
     LightBrightComponent,
     OpenWeatherComponent,
     GarbageDisposalComponent,
+    LoadingComponent,
 
     // Pipes.
     PowerBooleanPipe,
@@ -37,13 +42,14 @@ import { environment } from '../environments/environment';
 
     // Directives.
     LongPressDirective,
+
+    DvrBoardComponent,
   ],
   imports: [
-    environment.production ? ServiceWorkerModule.register('ngsw-worker.js') : [],
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    // NoopAnimationsModule,
 
     // Material.
     MatCardModule,
@@ -51,6 +57,7 @@ import { environment } from '../environments/environment';
     MatSlideToggleModule,
     MatSnackBarModule,
     MatDialogModule,
+    MatButtonModule,
 
     // Framework modules.
     CommonModule,
@@ -60,7 +67,8 @@ import { environment } from '../environments/environment';
   providers: [
     LifxService,
     OpenWeatherService,
-    HomeCloudServicesService
+    HomeCloudServicesService,
+    DvrService
   ],
   bootstrap: [ AppComponent ],
   entryComponents: [ LightBrightComponent ]

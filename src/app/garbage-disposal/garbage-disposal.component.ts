@@ -1,7 +1,7 @@
 import * as moment from 'moment';
 import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import { HomeCloudServicesService } from '../shared/services/home-cloud-services.service';
-import { IGarbageDisposalPayload } from '../shared/interfaces/garbage-disposal-payload.interface';
+import { IGarbageDisposalPayload } from '../shared/interfaces/payload/garbage-disposal-payload.interface';
 import { environment } from '../../environments/environment';
 
 @Component({

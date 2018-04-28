@@ -23,9 +23,9 @@ export const environment = {
   localEndpoints: {
     service: 'http://localhost:8080/',
     lightList: 'http://localhost:3000',
+    dvrList: 'http://localhost:3001',
     apis: {
-      setLightPower: 'lights/power',
-      setLightColor: 'lights/color'
+      httpListener: 'httpListener'
     }
   }
 };

@@ -6,10 +6,17 @@
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="assets/images/android-chrome-384x384.png">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="msapplication-starturl" content="/">
+  <meta name="theme-color" content="#525252">
+  <meta name="description" content="openhome extendes your home info"/>
+  <link rel="icon" type="image/x-icon" href="assets/images/icons/android-chrome-384x384.png">
   <link rel="manifest" href="manifest.json">
 </head>
 <body>
-  <app-root></app-root>
+  <app-root>
+    <app-loading></app-loading>
+  </app-root>
 </body>
 </html>

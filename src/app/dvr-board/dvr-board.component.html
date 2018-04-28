@@ -1,0 +1,5 @@
+<div *ngIf="dvrsDataset" class="dvr-container">
+  <div *ngFor="let camera of dvrsDataset" class="image-wrapper" [ngStyle]="{'background-image': 'url(' + dvrImage + camera + ')'}">
+    &nbsp;
+  </div>
+</div>

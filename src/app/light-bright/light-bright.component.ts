@@ -2,7 +2,7 @@ import {Component, Inject, OnInit} from '@angular/core';
 import { LifxService } from '../shared/services/lifx.service';
 import { MatSliderChange, MatSnackBar } from '@angular/material';
 import { MAT_DIALOG_DATA } from '@angular/material';
-import {ILifxLightColor} from '../shared/interfaces/lifx-light-state.interface';
+import {ILifxLightColor} from '../shared/interfaces/payload/lifx-light-state.interface';
 
 @Component({
   selector: 'app-light-bright',

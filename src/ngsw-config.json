@@ -5,7 +5,7 @@
     "installMode": "prefetch",
     "resources": {
       "files": [
-        "/favicon.ico",
+        "/assets/images/android-chrome-384x384.png",
         "/index.html"
       ],
       "versionedFiles": [

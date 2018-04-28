@@ -3,7 +3,7 @@ import * as moment from 'moment';
 import { Component, OnDestroy, OnInit, AfterViewInit } from '@angular/core';
 import { LifxService } from './shared/services/lifx.service';
 import { MatDialog, MatDialogConfig, MatSnackBar } from '@angular/material';
-import { ILifxLightPower } from './shared/interfaces/lifx-light-power.interface';
+import { ILifxLightPower } from './shared/interfaces/payload/lifx-light-power.interface';
 import { Subscription } from 'rxjs/Subscription';
 import { Observable } from 'rxjs/Observable';
 import { LightBrightComponent } from './light-bright/light-bright.component';
@@ -34,8 +34,12 @@ import { trigger, style, transition, animate } from '@angular/animations';
 })
 export class AppComponent implements AfterViewInit, OnInit, OnDestroy {
 
+  lights: boolean = true;
+  dvr: boolean = false;
+
   time = moment().format('HH:mm:ss');
   day = moment().format('dddd D MMMM YYYY');
+  weekNumber = moment().week();
 
   lsConnection: any;
   showClockConnection: Subscription;
@@ -62,6 +66,7 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy {
     setInterval(() => {
       this.time = moment().format('HH:mm:ss');
       this.day = moment().format('dddd D MMMM YYYY');
+      this.weekNumber = moment().week();
     }, 1000);
 
     this.showClockConnection = Observable
@@ -125,7 +130,10 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy {
   }
 
   checkResult(data: any) {
-    if (data.status !== 'ok') {
+
+    console.log(data);
+
+    if (data.payload.status !== 'ok') {
       this.openSnackBar('Something went wrong...', data.status);
     }
   }
@@ -153,5 +161,15 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy {
           }
         });
     }
+  }
+
+  selectLights() {
+    this.lights = true;
+    this.dvr = false;
+  }
+
+  selectDvr() {
+    this.lights = false;
+    this.dvr = true;
   }
 }

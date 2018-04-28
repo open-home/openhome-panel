@@ -1,6 +1,6 @@
 {
-  "short_name": "openhome-panel",
-  "name": "openhome Panel",
+  "short_name": "openhome",
+  "name": "openhome",
   "start_url": "/",
 
   "theme_color": "#525252",
@@ -10,6 +10,20 @@
   "orientation": "landscape",
 
   "icons": [
+    {
+      "src": "/assets/icons/apple-touch-icon.png",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/icons/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/icons/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
     {
       "src": "/assets/icons/android-chrome-384x384.png",
       "sizes": "384x384",

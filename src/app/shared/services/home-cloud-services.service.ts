@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
-import { IGarbageDisposalPayload } from '../interfaces/garbage-disposal-payload.interface';
+import { IGarbageDisposalPayload } from '../interfaces/payload/garbage-disposal-payload.interface';
 
 @Injectable()
 export class HomeCloudServicesService {

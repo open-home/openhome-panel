@@ -1,9 +1,9 @@
-export interface ILightPayload {
+export interface ILifxLightPayload {
 
   id: string;
   address: string;
   port: number;
-  label: string
+  label: string;
   power: string;
   color: any;
 }
