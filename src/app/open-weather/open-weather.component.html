@@ -1,5 +1,5 @@
-<div class="weather" *ngIf="weatherData">
+<span *ngIf="weatherData">
   <span class="temperature">{{ (weatherData.main.temp - 273.15) | roundNumber }}°C</span>&nbsp;
   <span class="forecast">{{ weatherData.weather[0].main }}</span>
   <!-- <img [src]="'http://openweathermap.org/img/w/' + weatherData.weather[0].icon + '.png'"/> -->
-</div>
+</span>

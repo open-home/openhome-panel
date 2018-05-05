@@ -6,7 +6,7 @@ import { LifxService } from './shared/services/lifx.service';
 import { HttpClientModule } from '@angular/common/http';
 import {
   MatButtonModule,
-  MatCardModule, MatDialogModule, MatSliderModule, MatSlideToggleModule, MatSnackBarModule,
+  MatCardModule, MatChipsModule, MatDialogModule, MatSliderModule, MatSlideToggleModule, MatSnackBarModule,
 } from '@angular/material';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -18,13 +18,14 @@ import { OpenWeatherComponent } from './open-weather/open-weather.component';
 import { OpenWeatherService} from './shared/services/open-weather.service';
 import { RoundNumberPipe } from './shared/pipes/round-number.pipe';
 import { GarbageDisposalComponent } from './garbage-disposal/garbage-disposal.component';
-import { HomeCloudServicesService } from './shared/services/home-cloud-services.service';
+import { OpenhomeService } from './shared/services/openhome.service';
 import { GarbageDisposalPipe } from './shared/pipes/garbage-disposal.pipe';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { LoadingComponent } from './shared/containers/loading/loading.component';
 import { DvrService } from './shared/services/dvr.service';
 import { DvrBoardComponent } from './dvr-board/dvr-board.component';
+import { ThermostatValueComponent } from './thermostat/thermostat-value/thermostat-value.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,8 @@ import { DvrBoardComponent } from './dvr-board/dvr-board.component';
     LongPressDirective,
 
     DvrBoardComponent,
+
+    ThermostatValueComponent,
   ],
   imports: [
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
@@ -58,6 +61,7 @@ import { DvrBoardComponent } from './dvr-board/dvr-board.component';
     MatSnackBarModule,
     MatDialogModule,
     MatButtonModule,
+    MatChipsModule,
 
     // Framework modules.
     CommonModule,
@@ -67,7 +71,7 @@ import { DvrBoardComponent } from './dvr-board/dvr-board.component';
   providers: [
     LifxService,
     OpenWeatherService,
-    HomeCloudServicesService,
+    OpenhomeService,
     DvrService
   ],
   bootstrap: [ AppComponent ],

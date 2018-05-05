@@ -17,6 +17,7 @@ export const environment = {
     homeCloudServices: {
       service: 'https://us-central1-home-cloud-services.cloudfunctions.net/',
       garbageDisposal: 'ecolan',
+      thermostat: 'thermostat',
       city: 'lanciano'
     }
   },

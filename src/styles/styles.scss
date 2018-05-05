@@ -49,6 +49,7 @@ body {
   width: 100%;
   text-align: center;
   font-size: 150px;
+  font-weight: bold;
   color: white;
   font-family: 'Roboto-Thin';
 }
@@ -56,7 +57,7 @@ body {
 .clock-date {
   width: 100%;
   text-align: center;
-  font-size: 30px;
+  font-size: 35px;
   color: white;
   font-family: 'Roboto-Thin';
 }
@@ -81,33 +82,42 @@ body {
   font-family: 'Roboto-Thin';
 }
 
+.chip {
+  display: inline-block;
+  padding: 6px 15px;
+  height: 40px;
+  line-height: 25px;
+  border-radius: 25px;
+  margin-right: 10px;
+}
+
 .garbage .day-disposal {
   font-weight: bold;
   color: #ff9a50;
 }
 
-.garbage .v-disposal {
-  color: #619c3c;
+.chip-v {
+  background-color: #619c3c;
 }
 
-.garbage .c-disposal {
-  color: #3388e3;
+.chip-c {
+  background-color: #3388e3;
 }
 
-.garbage .i-disposal {
-  color: #b8bfbf;
+.chip-i {
+  background-color: #b8bfbf;
 }
 
-.garbage .p-disposal {
-  color: #e7cd33;
+.chip-p {
+  background-color: #e7cd33;
 }
 
-.garbage .o-disposal {
-  color: #bf592d;
+.chip-o {
+  background-color: #bf592d;
 }
 
-.garbage .no-disposal {
-  color: #b7b7b7;
+.chip-no-disposal {
+  background-color: #7e7e7e;
 }
 
 .weather .temperature {
@@ -115,9 +125,22 @@ body {
   color: #ffd956;
 }
 
+.weather .thermostat {
+  font-weight: bold;
+  color: #ff723f;
+}
+
 .weather .forecast {
   font-weight: bold;
   color: #4cbdff;
+}
+
+.thermostat-active-0 {
+  color: #e50009;
+}
+
+.thermostat-active-1 {
+  color: #00e516;
 }
 
 .image-wrapper {

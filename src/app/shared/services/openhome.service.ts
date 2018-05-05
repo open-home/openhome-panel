@@ -4,7 +4,7 @@ import { environment } from '../../../environments/environment';
 import { IGarbageDisposalPayload } from '../interfaces/payload/garbage-disposal-payload.interface';
 
 @Injectable()
-export class HomeCloudServicesService {
+export class OpenhomeService {
 
   constructor(private http: HttpClient) {
 
@@ -16,5 +16,11 @@ export class HomeCloudServicesService {
 
     const garbageDisposalUrl = this.url + environment.remoteEndpoints.homeCloudServices.garbageDisposal;
     return this.http.post(garbageDisposalUrl, payload);
+  }
+
+  getThermostats() {
+
+    const thermostatUrl = this.url + environment.remoteEndpoints.homeCloudServices.thermostat;
+    return this.http.post(thermostatUrl, null);
   }
 }

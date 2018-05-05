@@ -36,7 +36,10 @@
   <div *ngIf="showClock" [@fadeInOut]>
     <p class="clock-time">{{ time }}</p>
     <p class="clock-date">{{ day }} <span class="clock-date-week">({{ weekNumber }})</span></p>
-    <app-open-weather></app-open-weather>
+    <div class="weather">
+      <app-thermostat-value [thermostatGuid]="'256343ac-a467-92d4-a2ed-fcb72eb63097'"></app-thermostat-value>
+      <app-open-weather></app-open-weather>
+    </div>
     <app-garbage-disposal></app-garbage-disposal>
   </div>
 

@@ -3,19 +3,19 @@
   <div>
     <span class="day-disposal">Today <i class="fa fa-fw fa-trash"></i></span>
     <span *ngIf="garbagePayloadToday">
-    <span *ngFor="let collection of garbagePayloadToday.garbageCollection">
-      <span [ngClass]="collection + '-disposal'">{{ collection | garbageDisposal }}</span>
+      <span *ngFor="let collection of garbagePayloadToday.garbageCollection">
+        <span class="chip" [ngClass]="'chip-' + collection">{{ collection | garbageDisposal }}</span>
+      </span>
     </span>
-    </span>
-    <span class="no-disposal" *ngIf="!garbagePayloadToday">No disposal</span>
+    <span class="chip chip-no-disposal" *ngIf="!garbagePayloadToday">No disposal</span>
   </div>
   <div>
     <span class="day-disposal">Tomorrow <i class="fa fa-fw fa-trash"></i></span>
     <span *ngIf="garbagePayloadTomorrow">
-    <span *ngFor="let collection of garbagePayloadTomorrow.garbageCollection">
-      <span [ngClass]="collection + '-disposal'">{{ collection | garbageDisposal }}</span>
+      <span *ngFor="let collection of garbagePayloadTomorrow.garbageCollection">
+        <span class="chip" [ngClass]="'chip-' + collection">{{ collection | garbageDisposal }}</span>
+      </span>
     </span>
-    </span>
-    <span class="no-disposal" *ngIf="!garbagePayloadTomorrow">No disposal</span>
+    <span class="chip chip-no-disposal" *ngIf="!garbagePayloadTomorrow">No disposal</span>
   </div>
 </div>
