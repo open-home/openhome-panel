@@ -26,6 +26,9 @@ import { LoadingComponent } from './shared/containers/loading/loading.component'
 import { DvrService } from './shared/services/dvr.service';
 import { DvrBoardComponent } from './dvr-board/dvr-board.component';
 import { ThermostatValueComponent } from './thermostat/thermostat-value/thermostat-value.component';
+import { ThermostatConfigComponent } from './thermostat/thermostat-config/thermostat-config.component';
+import { KeysPipe } from './shared/pipes/keys.pipe';
+import {ThermostatService} from './shared/services/thermostat.service';
 
 @NgModule({
   declarations: [
@@ -40,6 +43,7 @@ import { ThermostatValueComponent } from './thermostat/thermostat-value/thermost
     RoundNumberPipe,
     GarbageDisposalPipe,
     RoundNumberPipe,
+    KeysPipe,
 
     // Directives.
     LongPressDirective,
@@ -47,6 +51,8 @@ import { ThermostatValueComponent } from './thermostat/thermostat-value/thermost
     DvrBoardComponent,
 
     ThermostatValueComponent,
+
+    ThermostatConfigComponent,
   ],
   imports: [
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
@@ -72,7 +78,8 @@ import { ThermostatValueComponent } from './thermostat/thermostat-value/thermost
     LifxService,
     OpenWeatherService,
     OpenhomeService,
-    DvrService
+    DvrService,
+    ThermostatService
   ],
   bootstrap: [ AppComponent ],
   entryComponents: [ LightBrightComponent ]

@@ -1,0 +1,27 @@
+<div *ngIf="thermostats">
+  <div *ngFor="let thermostat of thermostats | keys" class="mb-3 col-3 inline-block">
+    <mat-card>
+
+      <mat-card-title>
+        <i class="fa fa-fw fa-circle" [ngClass]="'thermostat-active-' + thermostat.value.active"></i>
+        {{ thermostat.value.name }}
+      </mat-card-title>
+      <mat-card-subtitle>
+        <span>Current Temperature</span><br/>
+        <span class="thermo-config-current">{{ thermostat.value.temperature | roundNumber }}°C</span>
+      </mat-card-subtitle>
+      <mat-card-content>
+        <span>Threshold Temperature</span><br/>
+        <span class="thermo-config-threshold">{{ thermostat.value.threshold | roundNumber }}°C</span>
+        <br/><br/>
+        <div class="align-content-center">
+          <span class="chip chip-change-temp" (click)="setThreshold(thermostat.key, 0.1)">Up</span>
+          <span class="chip chip-change-temp" (click)="setThreshold(thermostat.key, -0.1)">Down</span>
+          <span
+            *ngIf="thermostat.value.save"
+            class="chip chip-change-temp-save" (click)="setThreshold(thermostat.key, -0.1)">Save</span>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

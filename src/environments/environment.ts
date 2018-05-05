@@ -4,6 +4,7 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
+
   production: false,
   remoteEndpoints: {
     openWeatherMap: {
@@ -25,6 +26,7 @@ export const environment = {
     service: 'http://localhost:8080/',
     lightList: 'http://localhost:3000',
     dvrList: 'http://localhost:3001',
+    thermostatList: 'http://localhost:3002',
     apis: {
       httpListener: 'httpListener'
     }

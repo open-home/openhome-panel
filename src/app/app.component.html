@@ -7,6 +7,10 @@
     <i class="fa fa-fw fa-video-camera light-on"></i>
     <span class="button-menu">DVR</span>
   </button>
+  <button mat-button (click)="selectThermostat()">
+    <i class="fa fa-fw fa-thermometer-half light-on"></i>
+    <span class="button-menu">Thermostats</span>
+  </button>
 </div>
 <div *ngIf="lsDataset.length > 0">
   <div class="mt-3">
@@ -33,10 +37,14 @@
     <app-dvr-board></app-dvr-board>
   </div>
 
+  <div class="mt-3" *ngIf="!showClock && thermostat" [@fadeInOut]>
+    <app-thermostat-config></app-thermostat-config>
+  </div>
+
   <div *ngIf="showClock" [@fadeInOut]>
     <p class="clock-time">{{ time }}</p>
     <p class="clock-date">{{ day }} <span class="clock-date-week">({{ weekNumber }})</span></p>
-    <div class="weather">
+    <div class="weather central">
       <app-thermostat-value [thermostatGuid]="'256343ac-a467-92d4-a2ed-fcb72eb63097'"></app-thermostat-value>
       <app-open-weather></app-open-weather>
     </div>

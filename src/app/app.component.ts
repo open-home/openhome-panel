@@ -36,6 +36,7 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy {
 
   lights: boolean = true;
   dvr: boolean = false;
+  thermostat: boolean = false;
 
   time = moment().format('HH:mm:ss');
   day = moment().format('dddd D MMMM YYYY');
@@ -166,10 +167,18 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy {
   selectLights() {
     this.lights = true;
     this.dvr = false;
+    this.thermostat = false;
   }
 
   selectDvr() {
     this.lights = false;
     this.dvr = true;
+    this.thermostat = false;
+  }
+
+  selectThermostat() {
+    this.lights = false;
+    this.dvr = false;
+    this.thermostat = true;
   }
 }

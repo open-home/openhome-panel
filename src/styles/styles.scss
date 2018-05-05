@@ -68,10 +68,13 @@ body {
 
 .weather {
   width: 100%;
-  text-align: center;
   font-size: 40px;
   color: white;
   font-family: 'Roboto-Thin';
+}
+
+.central {
+  text-align: center;
 }
 
 .garbage {
@@ -85,7 +88,7 @@ body {
 .chip {
   display: inline-block;
   padding: 6px 15px;
-  height: 40px;
+  height: 39px;
   line-height: 25px;
   border-radius: 25px;
   margin-right: 10px;
@@ -120,6 +123,14 @@ body {
   background-color: #7e7e7e;
 }
 
+.chip-change-temp {
+  background-color: #a1a1a1;
+}
+
+.chip-change-temp-save {
+  background-color: #14b01a;
+}
+
 .weather .temperature {
   font-weight: bold;
   color: #ffd956;
@@ -128,6 +139,11 @@ body {
 .weather .thermostat {
   font-weight: bold;
   color: #ff723f;
+}
+
+.weather .threshold {
+  font-weight: bold;
+  color: #4cbdff;
 }
 
 .weather .forecast {
@@ -160,4 +176,17 @@ body {
   height: 90vh;
   width: 99vw;
   padding-bottom: 20px;
+}
+
+
+.thermo-config .name {
+  font-size: 40px;
+}
+
+.thermo-config-current {
+  color: #d75930;
+}
+
+.thermo-config-threshold {
+  color: #38a1d4;
 }

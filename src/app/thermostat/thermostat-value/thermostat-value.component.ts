@@ -1,5 +1,5 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { OpenhomeService } from '../../shared/services/openhome.service';
+import { ThermostatService } from '../../shared/services/thermostat.service';
 
 @Component({
   selector: 'app-thermostat-value',
@@ -15,17 +15,17 @@ export class ThermostatValueComponent implements OnInit, OnDestroy {
 
   temperature: any;
 
-  constructor(private ohs: OpenhomeService) { }
+  constructor(private ts: ThermostatService) { }
 
   ngOnInit() {
 
     this.readTemperature();
-    setInterval(this.readTemperature.bind(this), 20000);
+    setInterval(this.readTemperature.bind(this), 120000);
   }
 
   readTemperature() {
 
-    this.ohsConnection = this.ohs.getThermostats().subscribe((data) => {
+    this.ohsConnection = this.ts.getThermostats().subscribe((data) => {
       this.temperature = data[this.thermostatGuid];
       console.log(data[this.thermostatGuid]);
     });

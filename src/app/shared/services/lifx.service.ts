@@ -6,8 +6,8 @@ import { Observable } from 'rxjs/Observable';
 import * as io from 'socket.io-client';
 import { ILifxLightPayload } from '../interfaces/payload/lifx-light-payload.interface';
 import { ILifxLightPower } from '../interfaces/payload/lifx-light-power.interface';
-import {Utils} from '../utils/utils';
-import {Actions} from '../actions/actions';
+import { Utils } from '../utils/utils';
+import { Actions } from '../actions/actions';
 
 @Injectable()
 export class LifxService {
