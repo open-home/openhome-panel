@@ -23,7 +23,7 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
 ## Docker deployment
-Run `docker build -t image-name .` to build an image
+Run `docker build -t image-name .` to build the image.
 
 Then you can get your container running:
 
