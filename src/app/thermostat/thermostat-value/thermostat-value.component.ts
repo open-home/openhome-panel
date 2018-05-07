@@ -19,15 +19,8 @@ export class ThermostatValueComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
-    this.readTemperature();
-    setInterval(this.readTemperature.bind(this), 120000);
-  }
-
-  readTemperature() {
-
     this.ohsConnection = this.ts.getThermostats().subscribe((data) => {
       this.temperature = data[this.thermostatGuid];
-      console.log(data[this.thermostatGuid]);
     });
   }
 
