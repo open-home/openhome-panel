@@ -24,7 +24,7 @@ export class ThermostatConfigComponent implements OnInit, OnDestroy {
 
   setThreshold(key: string, temperature: number) {
     this.thermostats[key].save = true;
-    this.thermostats[key].threshold += temperature;
+    this.thermostats[key].meta.threshold += temperature;
   }
 
   saveThreshold() {
@@ -32,7 +32,6 @@ export class ThermostatConfigComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    console.log('ciao');
     this.ohsConnection.unsubscribe();
   }
 }

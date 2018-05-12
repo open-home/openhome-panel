@@ -14,7 +14,7 @@ export const environment = {
       iconService: 'http://openweathermap.org/img/w/',
       dailyWeather: 'weather?id=@city&appid=@appId'
     },
-    // Official Open Home Cloud Services.
+    // Official Openhome Cloud Services.
     homeCloudServices: {
       service: 'https://us-central1-home-cloud-services.cloudfunctions.net/',
       garbageDisposal: 'ecolan',

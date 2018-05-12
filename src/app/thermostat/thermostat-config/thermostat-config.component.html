@@ -3,16 +3,16 @@
     <mat-card>
 
       <mat-card-title>
-        <i class="fa fa-fw fa-circle" [ngClass]="'thermostat-active-' + thermostat.value.active"></i>
+        <i class="fa fa-fw fa-circle" [ngClass]="'thermostat-active-' + thermostat.value.meta.active"></i>
         {{ thermostat.value.name }}
       </mat-card-title>
       <mat-card-subtitle>
         <span>Current Temperature</span><br/>
-        <span class="thermo-config-current">{{ thermostat.value.temperature | roundNumber }}°C</span>
+        <span class="thermo-config-current">{{ thermostat.value.meta.temperature | roundNumber }}°C</span>
       </mat-card-subtitle>
       <mat-card-content>
         <span>Threshold Temperature</span><br/>
-        <span class="thermo-config-threshold">{{ thermostat.value.threshold | roundNumber }}°C</span>
+        <span class="thermo-config-threshold">{{ thermostat.value.meta.threshold | roundNumber }}°C</span>
         <br/><br/>
         <div class="align-content-center">
           <span class="chip chip-change-temp" (click)="setThreshold(thermostat.key, 0.1)">Up</span>

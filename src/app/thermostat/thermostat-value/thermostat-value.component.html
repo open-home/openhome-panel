@@ -1,4 +1,4 @@
 <span *ngIf="temperature">
-  <i class="fa fa-fw fa-circle" [ngClass]="'thermostat-active-' + temperature.active"></i>
-  <span class="thermostat">({{ temperature.temperature | roundNumber }}°C)</span>
+  <i class="fa fa-fw fa-circle" [ngClass]="'thermostat-active-' + temperature.meta.active"></i>
+  <span class="thermostat">({{ temperature.meta.temperature | roundNumber }}°C)</span>
 </span>
