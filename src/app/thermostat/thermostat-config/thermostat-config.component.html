@@ -19,7 +19,7 @@
           <span class="chip chip-change-temp" (click)="setThreshold(thermostat.key, -0.1)">Down</span>
           <span
             *ngIf="thermostat.value.save"
-            class="chip chip-change-temp-save" (click)="setThreshold(thermostat.key, -0.1)">Save</span>
+            class="chip chip-change-temp-save" (click)="saveThreshold(thermostat.key)">{{ savingLabel }}</span>
         </div>
       </mat-card-content>
     </mat-card>

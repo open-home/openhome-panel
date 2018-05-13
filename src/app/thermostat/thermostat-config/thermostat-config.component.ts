@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ThermostatService } from '../../shared/services/thermostat.service';
+import {IThermostatZoneThresholdPayload} from '../../shared/interfaces/payload/thermostat-zone-threshold-payload.interface';
 
 @Component({
   selector: 'app-thermostat-config',
@@ -11,7 +12,7 @@ export class ThermostatConfigComponent implements OnInit, OnDestroy {
   ohsConnection: any;
 
   thermostats: any;
-
+  savingLabel = 'Save';
 
   constructor(private ts: ThermostatService) { }
 
@@ -27,8 +28,17 @@ export class ThermostatConfigComponent implements OnInit, OnDestroy {
     this.thermostats[key].meta.threshold += temperature;
   }
 
-  saveThreshold() {
+  saveThreshold(key: string) {
 
+    this.savingLabel = 'Saving...';
+    const payload: IThermostatZoneThresholdPayload = {
+      guid: key,
+      threshold: this.thermostats[key].meta.threshold
+    };
+
+    this.ts.setThermostat(payload).subscribe((data) => {
+      this.savingLabel = 'Save';
+    });
   }
 
   ngOnDestroy() {
