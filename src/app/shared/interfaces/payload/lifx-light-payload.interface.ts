@@ -6,4 +6,5 @@ export interface ILifxLightPayload {
   label: string;
   power: string;
   color: any;
+  brightness: number;
 }

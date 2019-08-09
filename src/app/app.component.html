@@ -11,6 +11,10 @@
     <i class="fa fa-fw fa-thermometer-half light-on"></i>
     <span class="button-menu">Thermostats</span>
   </button>
+  <button mat-button (click)="selectPiSwitch()">
+    <i class="fa fa-fw fa-key light-on"></i>
+    <span class="button-menu">Gates</span>
+  </button>
 </div>
 <div *ngIf="lsDataset.length > 0">
   <div class="mt-3">
@@ -18,7 +22,7 @@
         <div *ngFor="let light of lsDataset" class="mb-3 col-3 inline-block">
           <mat-card>
 
-            <mat-card-title (click)="onPower(light.power, light.label)">
+            <mat-card-title (click)="onPower(light.power, light.label, light.id)">
               <i class="fa fa-fw fa-lightbulb-o" [ngClass]="'light-' + light.power"></i>
               {{ light.label }}
             </mat-card-title>
@@ -39,6 +43,10 @@
 
   <div class="mt-3" *ngIf="!showClock && thermostat" [@fadeInOut]>
     <app-thermostat-config></app-thermostat-config>
+  </div>
+
+  <div class="mt-3" *ngIf="!showClock && piSwitch" [@fadeInOut]>
+    <app-pi-switch></app-pi-switch>
   </div>
 
   <div *ngIf="showClock" [@fadeInOut]>

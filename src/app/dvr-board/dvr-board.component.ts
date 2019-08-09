@@ -17,12 +17,12 @@ export class DvrBoardComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
-    this.dvrsConnection = this.dvrs.getDvr().subscribe((data) => {
+    /*this.dvrsConnection = this.dvrs.getDvr().subscribe((data) => {
       this.dvrsDataset = data;
-    });
+    });*/
   }
 
   ngOnDestroy() {
-    this.dvrsConnection.unsubscribe();
+    // this.dvrsConnection.unsubscribe();
   }
 }

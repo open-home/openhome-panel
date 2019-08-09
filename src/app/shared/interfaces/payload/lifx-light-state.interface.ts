@@ -1,8 +1,5 @@
-export interface ILifxLightColor {
+export interface ILifxLightState {
 
-  label: string;
-  hue: number;
-  saturation: number;
+  power: string;
   brightness: number;
-  kelvin: number;
 }

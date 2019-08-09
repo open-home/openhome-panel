@@ -1,5 +1,5 @@
 export interface ILifxLightPower {
 
-  label: string;
+  id: string;
   power: 'on' | 'off';
 }

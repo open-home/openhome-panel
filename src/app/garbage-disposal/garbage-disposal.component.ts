@@ -17,13 +17,11 @@ export class GarbageDisposalComponent implements OnInit, AfterViewInit, OnDestro
   garbagePayloadTomorrow: any;
   garbagePayloadToday: any;
 
+  interval: any;
+
   constructor(private hcss: OpenhomeService) { }
 
-  ngOnInit() {
-
-  }
-
-  ngAfterViewInit() {
+  getGarbageDisposal() {
 
     const today = moment();
     const tomorrow = moment().add(1, 'day');
@@ -49,6 +47,19 @@ export class GarbageDisposalComponent implements OnInit, AfterViewInit, OnDestro
     this.hcssConnectionTomorrow = this.hcss.getLocalGarbageDisposal(payloadTomorrow).subscribe((data) => {
       this.garbagePayloadTomorrow = data;
     });
+  }
+
+  ngOnInit() {
+
+  }
+
+  ngAfterViewInit() {
+
+    this.getGarbageDisposal();
+
+    this.interval = setInterval(() => {
+      this.getGarbageDisposal();
+    }, 300000);
   }
 
   ngOnDestroy() {

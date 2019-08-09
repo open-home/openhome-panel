@@ -19,12 +19,12 @@ export class ThermostatValueComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
-    this.ohsConnection = this.ts.getThermostats().subscribe((data) => {
+    /*this.ohsConnection = this.ts.getThermostats().subscribe((data) => {
       this.temperature = data[this.thermostatGuid];
-    });
+    });*/
   }
 
   ngOnDestroy() {
-    this.ohsConnection.unsubscribe();
+    // this.ohsConnection.unsubscribe();
   }
 }

@@ -29,6 +29,8 @@ import { ThermostatValueComponent } from './thermostat/thermostat-value/thermost
 import { ThermostatConfigComponent } from './thermostat/thermostat-config/thermostat-config.component';
 import { KeysPipe } from './shared/pipes/keys.pipe';
 import {ThermostatService} from './shared/services/thermostat.service';
+import { PiSwitchComponent } from './pi-switch/pi-switch.component';
+import {PiSwitchService} from './shared/services/pi-switch.service';
 
 @NgModule({
   declarations: [
@@ -48,11 +50,11 @@ import {ThermostatService} from './shared/services/thermostat.service';
     // Directives.
     LongPressDirective,
 
+    // Components
     DvrBoardComponent,
-
     ThermostatValueComponent,
-
     ThermostatConfigComponent,
+    PiSwitchComponent,
   ],
   imports: [
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
@@ -79,7 +81,8 @@ import {ThermostatService} from './shared/services/thermostat.service';
     OpenWeatherService,
     OpenhomeService,
     DvrService,
-    ThermostatService
+    ThermostatService,
+    PiSwitchService,
   ],
   bootstrap: [ AppComponent ],
   entryComponents: [ LightBrightComponent ]

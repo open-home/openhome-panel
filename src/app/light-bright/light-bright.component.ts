@@ -2,7 +2,7 @@ import {Component, Inject, OnInit} from '@angular/core';
 import { LifxService } from '../shared/services/lifx.service';
 import { MatSliderChange, MatSnackBar } from '@angular/material';
 import { MAT_DIALOG_DATA } from '@angular/material';
-import {ILifxLightColor} from '../shared/interfaces/payload/lifx-light-state.interface';
+import {ILifxLightState} from '../shared/interfaces/payload/lifx-light-state.interface';
 
 @Component({
   selector: 'app-light-bright',
@@ -19,17 +19,13 @@ export class LightBrightComponent implements OnInit {
 
   onBrightness(e: MatSliderChange) {
 
-    const payload: ILifxLightColor = {
-
-      label: this.state.data.label,
-      kelvin: this.state.data.color.kelvin,
-      brightness: e.value,
-      saturation: this.state.data.color.saturation,
-      hue: this.state.data.color.hue
+    const payload: ILifxLightState = {
+      power: this.state.data.power,
+      brightness: e.value
     };
 
-    this.ls.setLightColor(payload).subscribe((data: any) => {
-      this.checkResult(data);
+    this.ls.setLightColor(this.state.data.id, payload).catch((err: any) => {
+      this.openSnackBar('Something went wrong...', '');
     });
   }
 
@@ -37,11 +33,5 @@ export class LightBrightComponent implements OnInit {
     this.snackBar.open(message, action, {
       duration: 2000,
     });
-  }
-
-  checkResult(data: any) {
-    if (data.status !== 'ok') {
-      this.openSnackBar('Something went wrong...', data.status);
-    }
   }
 }

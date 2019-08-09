@@ -13,7 +13,21 @@ export const environment = {
       thermostat: 'thermostat',
       garbageDisposal: 'ecolan',
       city: 'lanciano'
-    }
+    },
+    lifx: {
+      service: 'https://api.lifx.com/v1/',
+      token: 'c42e8fb7391fece027d73ae0ff0167f1eac0e23f7a1cd1144463200c0b52fb3c',
+      lights: {
+        base: 'lights/',
+        toggle: '/toggle',
+        state: '/state',
+        all: '/all'
+      }
+    },
+    piSwitch: {
+      gate: 'http://kkidhome.ddnspro.org:8000/switch',
+      carGate: 'http://kkidhome.ddnspro.org:8001/switch',
+    },
   },
   localEndpoints: {
     service: 'http://192.168.1.11:8080/',

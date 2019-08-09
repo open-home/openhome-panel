@@ -1,6 +1,6 @@
 import * as chroma from 'chroma-js';
 import * as moment from 'moment';
-import { Component, OnDestroy, OnInit, AfterViewInit } from '@angular/core';
+import {Component, OnDestroy, OnInit, AfterViewInit, ElementRef, ViewChild, ViewChildren, QueryList, ContentChildren} from '@angular/core';
 import { LifxService } from './shared/services/lifx.service';
 import { MatDialog, MatDialogConfig, MatSnackBar } from '@angular/material';
 import { ILifxLightPower } from './shared/interfaces/payload/lifx-light-power.interface';
@@ -11,6 +11,7 @@ import 'rxjs/add/observable/fromEvent';
 import 'rxjs/add/observable/timer';
 import { distinctUntilChanged, map, switchMap } from 'rxjs/operators';
 import { trigger, style, transition, animate } from '@angular/animations';
+import {PiSwitchComponent} from './pi-switch/pi-switch.component';
 
 @Component({
   selector: 'app-root',
@@ -37,12 +38,12 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy {
   lights: boolean = true;
   dvr: boolean = false;
   thermostat: boolean = false;
+  piSwitch: boolean = false;
 
   time = moment().format('HH:mm:ss');
   day = moment().format('dddd D MMMM YYYY');
   weekNumber = moment().week();
 
-  lsConnection: any;
   showClockConnection: Subscription;
 
   dialogOpened: boolean = false;
@@ -84,13 +85,12 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.lsConnection.unsubscribe();
     this.showClockConnection.unsubscribe();
   }
 
   getLightStatus() {
 
-    this.lsConnection = this.ls.getLights().subscribe((data: any[]) => {
+    this.ls.getLights().then((data: any[]) => {
       this.lsDataset = data;
 
       // Color.
@@ -105,10 +105,10 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy {
     });
   }
 
-  onPower(currentStatus: string, label: string) {
+  onPower(currentStatus: string, label: string, id: string) {
 
     const state: ILifxLightPower = {
-      label: label,
+      id: id,
       power: currentStatus === 'off' ? 'on' : 'off'
     };
 
@@ -119,8 +119,10 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy {
       this.lsDataset[index]['power'] = state.power;
     }
 
-    this.ls.setLightPower(state).subscribe((data: any) => {
-      this.checkResult(data);
+    this.ls.togglePower(state).then(() => {
+      this.getLightStatus();
+    }).catch((err: any) => {
+      this.openSnackBar('Something went wrong...', '');
     });
   }
 
@@ -128,15 +130,6 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy {
     this.snackBar.open(message, action, {
       duration: 2000,
     });
-  }
-
-  checkResult(data: any) {
-
-    console.log(data);
-
-    if (data.payload.status !== 'ok') {
-      this.openSnackBar('Something went wrong...', data.status);
-    }
   }
 
   showBrightness(e: any) {
@@ -159,26 +152,40 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy {
         .subscribe((dialogData) => {
           if (!dialogData) {
             this.dialogOpened = false;
+            this.getLightStatus();
           }
         });
     }
   }
 
   selectLights() {
+
     this.lights = true;
     this.dvr = false;
     this.thermostat = false;
+    this.piSwitch = false;
+
+    this.getLightStatus();
   }
 
   selectDvr() {
     this.lights = false;
     this.dvr = true;
     this.thermostat = false;
+    this.piSwitch = false;
   }
 
   selectThermostat() {
     this.lights = false;
     this.dvr = false;
     this.thermostat = true;
+    this.piSwitch = false;
+  }
+
+  selectPiSwitch() {
+    this.lights = false;
+    this.dvr = false;
+    this.thermostat = false;
+    this.piSwitch = true;
   }
 }
