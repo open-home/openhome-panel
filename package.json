@@ -30,7 +30,7 @@
     "core-js": "^2.4.1",
     "dgram-browserify": "0.0.13",
     "font-awesome": "^4.7.0",
-    "moment": "^2.22.0",
+    "moment": "^2.29.4",
     "mp.css": "^1.0.0",
     "ngx-color-picker": "^5.3.8",
     "node-lifx": "^0.8.0",
